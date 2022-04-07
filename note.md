@@ -102,4 +102,10 @@ npm install @ant-design/icons --save
 
 ```js
 rmc 快捷键
+
+ES7 React/Redux/GraphQL/React-Native snippets
+
+// styled-components联想插件
+vscode-styled-components
+
 ```

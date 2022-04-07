@@ -50,7 +50,7 @@ export const HeaderLeft = styled.div`
           content: "";
           width: 28px;
           height: 19px;
-          background-image: url(${require("@/asserts/img/sprite_01.png")});
+          background-image: url(${require("@/assets/img/sprite_01.png")});
           top: 21px;
           left: 100px;
           background-position: -190px 0;
