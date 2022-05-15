@@ -98,6 +98,42 @@ npm install antd --save
 npm install @ant-design/icons --save
 ```
 
+
+# 域名首页路由重定向
+
+
+```js
+import HYDiscover from "@/pages/discover";
+import HYFriend from "@/pages/friend";
+import HYMine from "@/pages/mine";
+import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
+
+const routes = [
+  // 输入域名重定向到HYDiscover，exact: true必须严格匹配
+  {
+    path: "/",
+    exact: true,
+    render: () => (<Redirect to="/discover" />)
+  },
+  {
+    path: "/discover",
+    component: HYDiscover,
+  },
+  {
+    path: "/friend",
+    component: HYFriend,
+  },
+  {
+    path: "/mine",
+    component: HYMine,
+  },
+];
+
+export default routes;
+
+```
+
+
 # 工具
 
 ```js
@@ -107,5 +143,52 @@ ES7 React/Redux/GraphQL/React-Native snippets
 
 // styled-components联想插件
 vscode-styled-components
+rcc 类组件
+rfc 函数组件
 
+
+// 格式化
+alt+shit+f
 ```
+
+
+
+# node-api
+
+```js
+https://binaryify.github.io/NeteaseCloudMusicApi/#/
+```
+接口已经开元了，可以自己下载下来，然后进行本地部署server，也可以直接使用已经部署好的
+
+`123.207.32.32:9001`
+
+# 问题点：
+
+1. 报警告
+
+WARNING in src/components/app-header/index.js
+  Line 29:11:  Anchors must have content and the content must be accessible by a screen reader  jsx-a11y/anchor-has-content
+
+eslint要求必须渲染内容
+
+```html
+<a href="/" className="logo sprite_01" />
+```
+
+---
+
+解决办法1：
+
+```html
+// 1. 可以直接给空格
+<a href="/" className="logo sprite_01">  </a>
+```
+
+
+解决办法2：
+
+```html
+// 1. 给定内容“网易云音乐”，然后采用text-indent：-9999px使得缩进移除到屏幕外，这里给定内容是为了seo搜索引擎
+<a href="/" className="logo sprite_01">网易云音乐</a>
+```
+

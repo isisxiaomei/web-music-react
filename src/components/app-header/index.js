@@ -13,6 +13,7 @@ import {
 import { headerLinks } from "@/common/local-data";
 
 export default memo(() => {
+  // 前3个是跳2级路由，后3个是a标签
   const showSelectItem = (item, index) => {
     return index < 3 ? (
       <NavLink to={item.link}>{item.title}</NavLink>
@@ -25,13 +26,9 @@ export default memo(() => {
     <HeaderWrapper>
       <div className="content wrap-v1">
         <HeaderLeft>
-          <a href="/" className="logo sprite_01" />
+          <a href="/" className="logo sprite_01">网易云音乐</a>
           <div className="select-list">
-            {headerLinks.map((item, index) => {
-              return (
-                <div className="select-item">{showSelectItem(item, index)}</div>
-              );
-            })}
+            {headerLinks.map((item, index) => <div className="select-item" key={item.link}>{showSelectItem(item, index)}</div>)}
           </div>
         </HeaderLeft>
         <HeaderRight>
@@ -41,7 +38,7 @@ export default memo(() => {
             prefix={<SearchOutlined />}
           />
           <div className="creator-center">创作者中心</div>
-          <button className="login">登录</button>
+          <div className="login">登录</div>
         </HeaderRight>
       </div>
       <div className="divider"></div>
